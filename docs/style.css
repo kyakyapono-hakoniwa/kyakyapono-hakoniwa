@@ -1,0 +1,35 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #fff; color: #111; }
+body { font-family: Arial, "Helvetica Neue", sans-serif; overflow: hidden; }
+main { height: 100dvh; display: grid; grid-template-rows: auto 1fr auto; outline: none; }
+header, footer { display: flex; justify-content: space-between; align-items: flex-end; padding: 22px 30px; }
+header h1 { margin: 0; font-size: 14px; line-height: .95; letter-spacing: -.03em; }
+header a { color: inherit; text-decoration: none; font-size: 12px; border-bottom: 1px solid #111; padding-bottom: 2px; }
+.rail { display: flex; gap: 7vw; overflow-x: auto; overflow-y: hidden; align-items: center; padding: 1vh 14vw 1vh 30px; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.rail::-webkit-scrollbar { display: none; }
+figure { flex: 0 0 auto; width: min(62vw, 620px); margin: 0; scroll-snap-align: center; }
+figure > a { display: block; color: inherit; }
+figure img { display: block; width: 100%; height: min(66vh, 620px); object-fit: contain; background: #f7f7f7; }
+figcaption { display: flex; justify-content: space-between; gap: 24px; margin-top: 10px; font-size: 11px; }
+figcaption span { color: #8a8a8a; }
+footer { align-items: center; font-size: 10px; letter-spacing: .09em; padding-left: 180px; }
+footer p { margin: 0; }
+.controls { display: flex; align-items: center; gap: 8px; }
+.controls span { margin-right: 14px; color: #777; }
+button { width: 38px; height: 30px; background: white; border: 1px solid #d8d8d8; cursor: pointer; font-size: 16px; }
+button:hover { border-color: #111; }
+.message { width: min(62vw, 620px); margin: 0; color: #777; font-size: 11px; letter-spacing: .08em; }
+.walker { position: fixed; left: 0; bottom: 0; z-index: 10; width: 160px; pointer-events: none; user-select: none; }
+.walker img { display: block; width: 100%; height: auto; }
+
+@media (max-width: 700px) {
+  header, footer { padding: 18px; }
+  .rail { gap: 18px; padding: 0 10vw; }
+  figure { width: 80vw; }
+  figure img { height: auto; aspect-ratio: 1; }
+  footer p { display: none; }
+  footer { justify-content: flex-end; padding-left: 132px; }
+  .walker { left: -6px; bottom: -2px; width: 132px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .rail { scroll-behavior: auto; } }
